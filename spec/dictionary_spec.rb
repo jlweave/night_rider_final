@@ -41,4 +41,26 @@ RSpec.describe Dictionary do
 
     end
   end
+
+  describe '#translate_to_braille' do
+    it 'can take english char/words and translate it to Braille' do
+
+      expect(@map.translate_to_braille('h')).to eq('0.', '00', '..')
+      expect(@map.translate_to_braille('e')).to eq('0.', '.0', '..')
+      expect(@map.translate_to_braille('l')).to eq('0.', '0.', '0.')
+      expect(@map.translate_to_braille('p')).to eq('00', '0.', '0.')
+    end
+  end
+
+  xdescribe '#stacking' do
+    it 'can put the Braille in the correct format' do
+
+    end
+  end
+
+  xdescribe '#char_limit' do
+    it 'can push characters to a new line if over 80 char(40 Braille char)' do
+
+    end
+  end
 end
