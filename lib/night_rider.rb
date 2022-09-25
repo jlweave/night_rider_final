@@ -1,17 +1,16 @@
-handle = File.open(ARGV[0], "r")
+require './lib/dictionary'
 
-incoming_text = handle.read
+class NightRider
 
-handle.close
+  def read_file
+    file = File.open(ARGV[0], "r")
+    incoming_text = file.read
+    file.close
+  end
 
-
-capitalized_text = incoming_text.downcase
-
-writer = File.open(ARGV[1], "w")
-
-writer.write(capitalized_text)
-
-writer.close
-
-
-puts "Created '#{ARGV[1]}' containing #{capitalized_text.length} characters"
+  def write_file
+    writer = File.open(ARGV[1], "w")
+    writer.write(incoming_text)
+    puts "Created '#{ARGV[1]}' containing #{capitalized_text.length} characters"
+  end
+end
